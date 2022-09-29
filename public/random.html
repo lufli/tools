@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Assign Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row" align="center"><h1>Just Do Your Project</h1></div>
+        <div class="row justify-content-around">
+            <div class="col-md-3" align="center">
+                <p>Names</p>
+                <ul class="list-group name col"></ul>
+                <button class="btn btn-light" onclick="appendPeopleInput(1)";>Add people</button>
+            </div> 
+            <div class="col-md-3" align="center">
+                <p>Projects</p>
+                <ul class="list-group project col"></ul>
+                <button class="btn btn-light" onclick="appendProjectInput(1)">Add project</button>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <b>How to use?</b><br>
+                    1. Type people names<br>
+                    2. Type projects names<br>
+                    3. Submit<br>
+                    <b>What to look for?</b><br>
+                    1. Randomly assign projects to names<br>
+                    2. You need to remember the result<br>
+                    <del>3. Automatically destroy your machine</del><br>
+                </p>
+                <button class="btn btn-warning">Clear</button>
+                <button class="btn btn-success" onclick="submit()">Submit</button>
+            </div>  
+        </div>
+        <div class="row justify-content-around" align="center">
+            <ul id="result"></ul>
+        </div>
+    </div>
+<script>
+    $( document ).ready(function() {
+        console.log("page loaded");
+        appendPeopleInput(3);
+        appendProjectInput(3);
+    });
+
+    function appendPeopleInput(num) {
+        for (var i=0; i<num; i++) {
+            $('.name').append(`<li class='list-group-item'><input type='text'/></li>`); 
+        }
+    }
+
+    function appendProjectInput(num) {
+        for (var i=0; i<num; i++) {
+            $('.project').append(`<li class='list-group-item'><input type='text'/></li>`); 
+        }
+    }
+
+    function submit() {
+        // collect names
+        var elements = $('.name > li > input');
+        var names = [];
+        for (var i=0; i<elements.length; i++) {
+            names[i] = $(elements[i]).val();
+        }
+        names = shuffle(
+            names.reduce((acc, cur) => cur === '' ? [...acc] : [...acc, cur], [])
+        );
+
+        // collect projects
+        var elements = $('.project > li > input');
+        var projects = [];
+        for (var i=0; i<elements.length; i++) {
+            projects[i] = $(elements[i]).val();
+        }
+        projects = shuffle(
+            projects.reduce((acc, cur) => cur === '' ? [...acc] : [...acc, cur], [])
+        );
+
+        // Render results
+        var i = 0;
+        while (i < names.length && i < projects.length) {
+            $('#result').append(`<li class='list-group-item'><h3>${names[i]} -> ${projects[i]}</h3></li>`);
+            i++;
+        }
+
+        if (i < names.length) {
+            $('#result').append(`<li class='list-group-item'><h2>People Who Do Not Have Project</h2></li>`);
+            while (i < names.length) {
+                $('#result').append(`<li class='list-group-item'><h3>${names[i]}</h3></li>`);
+                i++;
+            }
+        } else if (i < projects.length) {
+            $('#result').append(`<li class='list-group-item'><h2>Project Won't Do</h2></li>`);
+            while (i < projects.length) {
+                $('#result').append(`<li class='list-group-item'><h3>${projects[i]}</h3></li>`);
+                i++;
+            }
+        }
+
+        $('.btn-success').prop("disabled",true);
+    }
+
+    function shuffle(array) {
+        let currentIndex = array.length;
+
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+</script>
+</body>
+</html>
