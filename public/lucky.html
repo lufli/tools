@@ -71,7 +71,7 @@
     });
 
     function fetchPrize() {
-        fetch('https://tools.lufan.io/prize')
+        fetch('https://api.lufan.io/prize')
         .then(response => response.json())
         .then(data => {
             const { powerballPrize, doubleplayPrize, megaMillionsPrize } = data;
