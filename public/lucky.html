@@ -62,12 +62,15 @@
                     </tr>
                 </tbody>
             </table>
+            <div>Next draw: <span class="next-check"></span></div>
         </div>
     </div>
 <script>
     $( document ).ready(function() {
         console.log("page loaded");
         fetchPrize();
+        getNextDrawInfo();
+        document.querySelector('.next-check').innerHTML = getNextDrawInfo();
     });
 
     function fetchPrize() {
@@ -89,6 +92,24 @@
             document.querySelector('.total').innerHTML = megaMillionsPrize.reduce((acc, cur) => acc + cur, 0) + powerballPrize.reduce((acc, cur) => acc + cur, 0) + doubleplayPrize.reduce((acc, cur) => acc + cur, 0);
         });
     };
+
+    function getNextDrawInfo() {
+        const current = new Date();
+        let d = current.getDay();
+        console.log(d);
+        if (d === 0 || d === 1) {
+            return 'Powerball & Double Play, ' + current.toLocaleDateString() + ' 11:00PM';
+        } else if (d === 2) {
+            return 'Mega Millions, ' + current.toLocaleDateString() + ' 11:00PM';
+        } else if (d === 3) {
+            return 'Powerball & Double Play, ' + current.toLocaleDateString() + ' 11:00PM';
+        } else if (d === 4 || d === 5) {
+            return 'Mega Millions, ' + current.toLocaleDateString() + ' 11:00PM';
+        } else if (d === 6) {
+            return 'Powerball & Double Play, ' + current.toLocaleDateString() + ' 11:00PM';
+        }
+        return 'N/A';
+    }
 </script>
 </body>
 </html>
