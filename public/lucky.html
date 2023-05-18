@@ -7,56 +7,179 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        .ball {
+            display: inline-block;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border: 1px solid #666;
+            color: #666;
+            text-align: center;
+        }
+        .special-ball {
+            display: inline-block;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background: yellow;
+            border: 1px solid #666;
+            color: #666;
+            text-align: center;
+        }
+        .win-ball {
+            display: inline-block;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background: green;
+            border: 1px solid #666;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row" align="center"><h1>一夜暴富</h1></div>
+        <div class="row" align="center"><h1>一夜暴富，就在今天</h1></div>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Name</th>
+                        <th scope="col">Winning Numbers</th>
                         <th scope="col">#</th>
+                        <th scope="col">Play</th>
                         <th scope="col">Prize</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td rowspan="4">Mega Millions</td>
-                        <td>1</td>
-                        <td class="mega prize-one"></td>
+                        <td rowspan="4" class="win-mega">
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="special-ball"></span>
+                        </td>
+                        <td>A</td>
+                        <td class="play-mega">
+                            <span class="ball">15</span>
+                            <span class="ball">27</span>
+                            <span class="ball">42</span>
+                            <span class="ball">56</span>
+                            <span class="ball">69</span>
+                            <span class="special-ball">17</span>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td class="mega prize-two"></td>
+                        <td>B</td>
+                        <td class="play-mega">
+                            <span class="ball">3</span>
+                            <span class="ball">18</span>
+                            <span class="ball">31</span>
+                            <span class="ball">47</span>
+                            <span class="ball">62</span>
+                            <span class="special-ball">9</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td class="mega prize-three"></td>
+                        <td>C</td>
+                        <td class="play-mega">
+                            <span class="ball">5</span>
+                            <span class="ball">10</span>
+                            <span class="ball">23</span>
+                            <span class="ball">37</span>
+                            <span class="ball">56</span>
+                            <span class="special-ball">17</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
-                        <td>4</td>
-                        <td class="mega prize-four"></td>
+                        <td>D</td>
+                        <td class="play-mega">
+                            <span class="ball">7</span>
+                            <span class="ball">16</span>
+                            <span class="ball">25</span>
+                            <span class="ball">42</span>
+                            <span class="ball">49</span>
+                            <span class="special-ball">8</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
                         <td rowspan="2">Powerball</td>
-                        <td>1</td>
-                        <td class="powerball prize-one"></td>
+                        <td rowspan="2" class="win-powerball">
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="special-ball"></span>
+                        </td>
+                        <td>A</td>
+                        <td class="play-powerball">
+                            <span class="ball">4</span>
+                            <span class="ball">9</span>
+                            <span class="ball">22</span>
+                            <span class="ball">41</span>
+                            <span class="ball">55</span>
+                            <span class="special-ball">11</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td class="powerball prize-two"></td>
+                        <td>B</td>
+                        <td class="play-powerball">
+                            <span class="ball">18</span>
+                            <span class="ball">25</span>
+                            <span class="ball">47</span>
+                            <span class="ball">52</span>
+                            <span class="ball">66</span>
+                            <span class="special-ball">16</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
                         <td rowspan="2">Double Play</td>
-                        <td>1</td>
-                        <td class="double-play prize-one"></td>
+                        <td rowspan="2" class="win-double-play">
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="ball"></span>
+                            <span class="special-ball"></span>
+                        </td>
+                        <td>A</td>
+                        <td class="play-double">
+                            <span class="ball">4</span>
+                            <span class="ball">9</span>
+                            <span class="ball">22</span>
+                            <span class="ball">41</span>
+                            <span class="ball">55</span>
+                            <span class="special-ball">11</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td class="double-play prize-two"></td>
+                        <td>B</td>
+                        <td class="play-double">
+                            <span class="ball">18</span>
+                            <span class="ball">25</span>
+                            <span class="ball">47</span>
+                            <span class="ball">52</span>
+                            <span class="ball">66</span>
+                            <span class="special-ball">16</span>
+                        </td>
+                        <td class="prize"></td>
                     </tr>
                     <tr>
                         <td>Total</td>
+                        <td>-</td>
+                        <td>-</td>
                         <td>-</td>
                         <td class="total"></td>
                     </tr>
@@ -68,35 +191,96 @@
 <script>
     $( document ).ready(function() {
         console.log("page loaded");
-        fetchPrize();
-        getNextDrawInfo();
+        fetchWinningNumbers();
         document.querySelector('.next-check').innerHTML = getNextDrawInfo();
     });
 
-    function fetchPrize() {
-        fetch('https://api.lufan.io/prize')
+    function fetchWinningNumbers() {
+        fetch('https://api.lufan.io/numbers')
         .then(response => response.json())
         .then(data => {
-            const { powerballPrize, doubleplayPrize, megaMillionsPrize } = data;
-            console.log(powerballPrize);
-            console.log(doubleplayPrize);
-            console.log(megaMillionsPrize);
-            document.querySelector('.mega.prize-one').innerHTML = megaMillionsPrize[0];
-            document.querySelector('.mega.prize-two').innerHTML = megaMillionsPrize[1];
-            document.querySelector('.mega.prize-three').innerHTML = megaMillionsPrize[2];
-            document.querySelector('.mega.prize-four').innerHTML = megaMillionsPrize[3];
-            document.querySelector('.powerball.prize-one').innerHTML = powerballPrize[0];
-            document.querySelector('.powerball.prize-two').innerHTML = powerballPrize[1];
-            document.querySelector('.double-play.prize-one').innerHTML = doubleplayPrize[0];
-            document.querySelector('.double-play.prize-two').innerHTML = doubleplayPrize[1];
-            document.querySelector('.total').innerHTML = megaMillionsPrize.reduce((acc, cur) => acc + cur, 0) + powerballPrize.reduce((acc, cur) => acc + cur, 0) + doubleplayPrize.reduce((acc, cur) => acc + cur, 0);
+            // fill winning numbers
+            const { powerBall, megaMillions, doublePlay } = data;
+
+            const megaWin = document.querySelector('.win-mega').children;
+            for (let i=0; i < megaWin.length; i++) {
+                megaWin[i].innerHTML = i < 5 ? megaMillions.whiteBalls[i] : megaMillions.powerBall;
+            }
+
+            const powerWin = document.querySelector('.win-powerball').children;
+            for (let i=0; i < powerWin.length; i++) {
+                powerWin[i].innerHTML = i < 5 ? powerBall.whiteBalls[i] : powerBall.powerBall;
+            }
+
+            const doubleWin = document.querySelector('.win-double-play').children;
+            for (let i=0; i < doubleWin.length; i++) {
+                doubleWin[i].innerHTML = i < 5 ? doublePlay.whiteBalls[i] : doublePlay.powerBall;
+            }
+
+            // check plays
+            document.querySelectorAll('.play-mega').forEach(element => {
+                const children = element.children;
+                let count = 0;
+                let hitSpecial = false;
+                for (let i = 0; i < children.length; i++) {
+                    if (megaMillions.whiteBalls.includes(parseInt(children[i].innerHTML))) {
+                        children[i].className = 'win-ball';
+                        count += 1;
+                    }
+                }
+                if (parseInt(children[5].innerHTML) === megaMillions.powerBall) {
+                    children[5].className = 'win-ball';
+                    hitSpecial = true;
+                }
+                element.nextElementSibling.innerHTML = calculateMegaMillions(count, hitSpecial, megaMillions.multiplier);
+            });
+
+            document.querySelectorAll('.play-powerball').forEach(element => {
+                const children = element.children;
+                let count = 0;
+                let hitSpecial = false;
+                for (let i = 0; i < children.length; i++) {
+                    if (powerBall.whiteBalls.includes(parseInt(children[i].innerHTML))) {
+                        children[i].className = 'win-ball';
+                        count += 1;
+                    }
+                }
+                if (parseInt(children[5].innerHTML) === powerBall.powerBall) {
+                    children[5].className = 'win-ball';
+                    hitSpecial = true;
+                }
+                element.nextElementSibling.innerHTML = calculatePowerball(count, hitSpecial, powerBall.multiplier);
+            });
+
+            document.querySelectorAll('.play-double').forEach(element => {
+                const children = element.children;
+                let count = 0;
+                let hitSpecial = false;
+                for (let i = 0; i < children.length; i++) {
+                    if (doublePlay.whiteBalls.includes(parseInt(children[i].innerHTML))) {
+                        children[i].className = 'win-ball';
+                        count += 1;
+                    }
+                }
+                if (parseInt(children[5].innerHTML) === doublePlay.powerBall) {
+                    children[5].className = 'win-ball';
+                    hitSpecial = true;
+                }
+                element.nextElementSibling.innerHTML = calculateDoublePlay(count, hitSpecial);
+            });
+
+            // calculate total
+            let total = 0;
+            document.querySelectorAll('.prize').forEach(element => {
+                total += parseInt(element.innerHTML);
+            })
+            document.querySelector('.total').innerHTML = total;
         });
-    };
+    }
 
     function getNextDrawInfo() {
         const current = new Date();
         let d = current.getDay();
-        console.log(d);
         if (d === 0 || d === 1) {
             return 'Powerball & Double Play, ' + current.toLocaleDateString() + ' 11:00PM';
         } else if (d === 2) {
@@ -109,6 +293,63 @@
             return 'Powerball & Double Play, ' + current.toLocaleDateString() + ' 11:00PM';
         }
         return 'N/A';
+    }
+
+    function calculateMegaMillions (hitBalls, hitSpecial, multiplier) {
+        switch(hitBalls) {
+            case 0:
+                return hitSpecial ? 2 * multiplier : 0;
+            case 1:
+                return hitSpecial ? 4 * multiplier : 0;
+            case 2:
+                return hitSpecial ? 10 * multiplier : 0;
+            case 3:
+                return hitSpecial ? 200 * multiplier : 10 * multiplier;
+            case 4:
+                return hitSpecial ? 10000 * multiplier : 500 * multiplier;
+            case 5:
+                return hitSpecial ? 'Jackpot' : 1000000;
+            default:
+                return 0
+        }
+    }
+
+    function calculatePowerball (hitBalls, hitSpecial, multiplier) {
+        switch(hitBalls) {
+            case 0:
+                return hitSpecial ? 4 * multiplier : 0;
+            case 1:
+                return hitSpecial ? 4 * multiplier : 0;
+            case 2:
+                return hitSpecial ? 7 * multiplier : 0;
+            case 3:
+                return hitSpecial ? 100 * multiplier : 7 * multiplier;
+            case 4:
+                return hitSpecial ? 50000 * multiplier : 100 * multiplier;
+            case 5:
+                return hitSpecial ? 'Jackpot' : 2000000;
+            default:
+                return 0
+        }
+    }
+
+    function calculateDoublePlay (hitBalls, hitSpecial) {
+        switch(hitBalls) {
+            case 0:
+                return hitSpecial ? 7 : 0;
+            case 1:
+                return hitSpecial ? 10 : 0;
+            case 2:
+                return hitSpecial ? 20 : 0;
+            case 3:
+                return hitSpecial ? 500 : 20;
+            case 4:
+                return hitSpecial ? 50000 : 500;
+            case 5:
+                return hitSpecial ? 10000000 : 500000;
+            default:
+                return 0
+        }
     }
 </script>
 </body>
