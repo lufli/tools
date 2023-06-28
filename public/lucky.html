@@ -222,7 +222,7 @@
                 const children = element.children;
                 let count = 0;
                 let hitSpecial = false;
-                for (let i = 0; i < children.length; i++) {
+                for (let i = 0; i < children.length - 1; i++) {
                     if (megaMillions.whiteBalls.includes(parseInt(children[i].innerHTML))) {
                         children[i].className = 'win-ball';
                         count += 1;
@@ -239,7 +239,7 @@
                 const children = element.children;
                 let count = 0;
                 let hitSpecial = false;
-                for (let i = 0; i < children.length; i++) {
+                for (let i = 0; i < children.length - 1; i++) {
                     if (powerBall.whiteBalls.includes(parseInt(children[i].innerHTML))) {
                         children[i].className = 'win-ball';
                         count += 1;
@@ -256,7 +256,7 @@
                 const children = element.children;
                 let count = 0;
                 let hitSpecial = false;
-                for (let i = 0; i < children.length; i++) {
+                for (let i = 0; i < children.length - 1; i++) {
                     if (doublePlay.whiteBalls.includes(parseInt(children[i].innerHTML))) {
                         children[i].className = 'win-ball';
                         count += 1;
