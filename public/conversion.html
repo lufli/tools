@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/js-big-decimal@1.3.1/dist/web/js-big-decimal.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <form>
+        <h4>inch to mm</h4>
+        <div class="form-group">
+          <label for="inchInput">inch</label>
+          <input class="form-control" id="inchInput" placeholder="type inchs" oninput="inchOnInput()">
+        </div>
+        <div class="form-group">
+          <label for="mmInput">mm</label>
+          <input class="form-control" id="mmInput" placeholder="result" disabled>
+        </div>
+        <p><b>Note: It's ok that input is a sentence, we will convert the numbers only.</b></p>
+				<!-- <button class="btn btn-warning">Clear</button> -->
+				<!-- <button class="btn btn-success" onclick="submit()">Submit</button> -->
+      </form>
+    </div>
+  </div>
+<script>
+  function inchOnInput(e) {
+    var numberPattern = /[-]{0,1}[\d]*[,]?[\d]*[.]{0,1}[\d]+/g;
+    var numbers = document.getElementById('inchInput').value.match(numberPattern);
+    var iterator = numbersGenerator(numbers);
+    document.getElementById('mmInput').value = document.getElementById('inchInput').value.replace(numberPattern, () => iterator.next().value);
+  }
+
+  function* numbersGenerator(arr) {
+    var i = 0;
+    var l = arr.length;
+    while (i < l) {
+      yield bigDecimal.multiply(arr[i], '25.4');
+      i++;
+    }
+  }
+</script>
+</body>
+</html>
